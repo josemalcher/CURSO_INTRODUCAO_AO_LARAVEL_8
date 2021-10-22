@@ -16,7 +16,19 @@ APRENDA DE UMA VEZ POR TODAS O MELHOR E MAIS COMPLETO FRAMEWORK PHP DO MERCADO. 
 
 ## <a name="parte1">1 - Setup</a>
 
+01 - Bem-vindo ao curso de Laravel 8.
 
+- [https://github.com/especializati/curso-laravel-8](https://github.com/especializati/curso-laravel-8)
+
+
+02 - Ferramentas Para o Curso de Laravel 8
+
+03 - Instalando e Configurando o Laravel 8
+
+- [https://laravel.com/docs/8.x/installation](https://laravel.com/docs/8.x/installation)
+
+
+04 - Versionamento de Código com o Git (e armazenar no GitHub)
 
 [Voltar ao Índice](#indice)
 
