@@ -37,6 +37,25 @@ APRENDA DE UMA VEZ POR TODAS O MELHOR E MAIS COMPLETO FRAMEWORK PHP DO MERCADO. 
 
 ## <a name="parte2">2 - CRUD</a>
 
+- 05 - Conectar Laravel ao Banco de Dados
+- 
+- 06 - Listar Registros com o Laravel
+- 
+- 07 - Inserir Registros com o Laravel (feat. Segurança)
+- 
+- 08 - Validações com o Larave
+- 
+- 09 - Exibir Detalhes de Registro e Deletar com o Laravel
+- 
+- 10 - Atualizar Registros com o Laravel
+- 
+- 11 - Paginação e Ordem das Rotas com o Laravel
+- 
+- 12 - Filtros no Laravel 8
+- 
+- 13 - Reaproveitar Códigos Blade no Laravel 8
+- 
+- 14 - Templates Blade no Laravel 8
 
 
 [Voltar ao Índice](#indice)
