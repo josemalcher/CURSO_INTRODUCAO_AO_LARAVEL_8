@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('id')->paginate();// 15
+        $posts = Post::orderBy('id')->paginate(2);// 15
         //dd($posts);
         return view('admin.posts.index', compact('posts'));
     }
@@ -37,7 +37,7 @@ class PostController extends Controller
 
     public function destroy($id)
     {
-        if(!$post = Post::find($id)){
+        if (!$post = Post::find($id)) {
             return redirect()->route('posts.index');
         }
         $post->delete();
@@ -46,6 +46,7 @@ class PostController extends Controller
             ->route('posts.index')
             ->with('message', 'Post Deletado com sucesso');
     }
+
     public function edit($id)
     {
         if (!$post = Post::find($id)) {
@@ -53,7 +54,8 @@ class PostController extends Controller
         }
         return view('admin.posts.edit', compact('post'));
     }
-    public function update(StoreUpdatePost $request,$id)
+
+    public function update(StoreUpdatePost $request, $id)
     {
         if (!$post = Post::find($id)) {
             return redirect()->back();
@@ -63,4 +65,19 @@ class PostController extends Controller
         $post->update($request->all());
         return redirect()->route('posts.index')->with('message', "Post Editado com sucesso");
     }
+
+    public function search(Request $request)
+    {
+        //$filters = $request->all();
+        $filters = $request->except('_token');
+
+        $posts =
+            Post::where(    'title', 'LIKE', "%{$request->search}%")
+                ->orWhere('content', 'LIKE', "%{$request->search}%")
+                ->paginate(2);
+        // toSql(); // debugar
+        return view('admin.posts.index', compact('posts', 'filters'));
+
+    }
+
 }
