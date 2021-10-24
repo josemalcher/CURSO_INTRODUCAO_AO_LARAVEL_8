@@ -43,7 +43,7 @@ APRENDA DE UMA VEZ POR TODAS O MELHOR E MAIS COMPLETO FRAMEWORK PHP DO MERCADO. 
  
 - 07 - Inserir Registros com o Laravel (feat. Segurança)
  
-- 08 - Validações com o Larave
+- 08 - Validações com o Laravel
  
 - 09 - Exibir Detalhes de Registro e Deletar com o Laravel
  
