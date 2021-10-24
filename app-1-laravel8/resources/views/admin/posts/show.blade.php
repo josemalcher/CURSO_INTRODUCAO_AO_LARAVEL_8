@@ -1,3 +1,8 @@
+@extends('admin.layouts.app')
+
+@section('title', 'Show Post')
+
+@section('content')
 <h1>Detalhes do Post {{$post->title}}</h1>
 
 <ul>
@@ -13,3 +18,4 @@
 </form>
 <hr>
 <a href="{{route('posts.index')}}">Voltar</a>
+@endsection

@@ -1,3 +1,8 @@
+@extends('admin.layouts.app')
+
+@section('title', 'Criar Post')
+
+@section('content')
 <h1>Cadastrar Novo Post</h1>
 
 <div>
@@ -7,3 +12,4 @@
     </form>
     <a href="{{route('posts.index')}}">Voltar a Litagem</a>
 </div>
+@endsection

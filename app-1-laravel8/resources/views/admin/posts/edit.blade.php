@@ -1,3 +1,8 @@
+@extends('admin.layouts.app')
+
+@section('title', 'Editar Post')
+
+@section('content')
 <h1>Editar o Post <strong>{{$post->title}}</strong></h1>
 <div>
     <form action="{{route('post.update', $post->id)}}" method="post">
@@ -10,3 +15,4 @@
     </form>
     <a href="{{route('posts.index')}}">Voltar a Litagem</a>
 </div>
+@endsection
