@@ -65,7 +65,55 @@ APRENDA DE UMA VEZ POR TODAS O MELHOR E MAIS COMPLETO FRAMEWORK PHP DO MERCADO. 
 
 ## <a name="parte3">3 - Upload Arquivos</a>
 
+- 15 - Configurações no Laravel para Upload de Arquivos
 
+```php
+class CreatePostsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title',160)->unique();
+            $table->string('image');
+            $table->text('content')->nullable();
+            $table->timestamps();
+        });
+    }
+```
+
+```
+$ php artisan migrate:refresh
+Rolling back: 2021_10_23_192429_create_posts_table
+Rolled back:  2021_10_23_192429_create_posts_table (43.93ms)
+(...)
+```
+
+- [app-1-laravel8/.env](app-1-laravel8/.env)
+
+```
+FILESYSTEM_DRIVER=public
+```
+
+```
+$ php artisan storage:link
+The [C:\Users\josem\Documents\workspaces\especializati-intermediario\CURSO_INTRODUCAO_AO_LARAVEL_8\app-1-laravel8\public\storage
+] link has been connected to [C:\Users\josem\Documents\workspaces\especializati-intermediario\CURSO_INTRODUCAO_AO_LARAVEL_8\app-
+1-laravel8\storage\app/public].
+The links have been created.
+
+```
+
+- 16 - Upload de Arquivos no Laravel (pt-1)
+
+- 17 - Upload de Arquivos no Laravel (pt-2)
+
+- 18 - Validações de Upload no Laravel
 
 [Voltar ao Índice](#indice)
 
