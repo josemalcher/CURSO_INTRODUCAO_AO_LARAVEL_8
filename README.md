@@ -111,6 +111,35 @@ The links have been created.
 
 - 16 - Upload de Arquivos no Laravel (pt-1)
 
+```php
+public function store(StoreUpdatePost $request)
+    {
+        $data = $request->all();
+
+        if ($request->image->isValid()) {
+
+            $nameFile = Str::of($request->title)->slug('-') . '.'
+                . $request->image->getClientOriginalExtension();
+
+            $file = $request->image->storeAs('public/posts',$nameFile);
+            $file = str_replace('public/','',$file);
+            $data['image'] = $file;
+
+            /*$nameFile = Str::of($request->title)->slug('-') . '.'
+                . $request->image->getClientOriginalExtension();
+            $image = $request->image->storeAs('posts', $nameFile);
+            $data['image'] = $image;*/
+        }
+
+        Post::create($data);
+        return redirect()->route('posts.index')->with('message', "Post Criado com sucesso");
+    }
+```
+
+```php
+<img src="{{ url("storage/{$post->image}") }}" alt="{{ $post->title }}" style="max-width: 100px">
+```
+
 - 17 - Upload de Arquivos no Laravel (pt-2)
 
 - 18 - Validações de Upload no Laravel

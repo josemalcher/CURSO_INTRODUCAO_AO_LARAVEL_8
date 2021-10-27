@@ -7,6 +7,9 @@
 @endif
 
 @csrf
+<div>
+    <input type="file" name="image" id="image">
+</div>
 <p><input type="text" name="title" id="title" placeholder="Título" value="{{$post->title ?? old('title')}}"></p>
 <p><textarea name="content" id="content" cols="30" rows="10"
              placeholder="Conteúdo">{{$post->content ?? old('content')}}</textarea></p>

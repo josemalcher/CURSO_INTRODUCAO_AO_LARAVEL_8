@@ -5,7 +5,7 @@
 @section('content')
 <h1>Editar o Post <strong>{{$post->title}}</strong></h1>
 <div>
-    <form action="{{route('post.update', $post->id)}}" method="post">
+    <form action="{{route('post.update', $post->id)}}" method="post" enctype="multipart/form-data">
         {{--<input type="text" name="_token" value="{{ csrf_token() }}">--}}
 
         @method('put')
