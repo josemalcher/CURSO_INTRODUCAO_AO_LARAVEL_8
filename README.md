@@ -142,6 +142,41 @@ public function store(StoreUpdatePost $request)
 
 - 17 - Upload de Arquivos no Laravel (pt-2)
 
+```php
+public function update(StoreUpdatePost $request, $id)
+    {
+        if (!$post = Post::find($id)) {
+            return redirect()->back();
+        }
+
+        $data = $request->all();
+
+        if ($request->image->isValid()) {
+
+            if(Storage::exists($post->image)){
+                Storage::delete($post->image);
+            }
+
+            $nameFile = Str::of($request->title)->slug('-') . '.'
+                . $request->image->getClientOriginalExtension();
+
+            $file = $request->image->storeAs('public/posts',$nameFile);
+            $file = str_replace('public/','',$file);
+            $data['image'] = $file;
+
+            /*$nameFile = Str::of($request->title)->slug('-') . '.'
+                . $request->image->getClientOriginalExtension();
+            $image = $request->image->storeAs('posts', $nameFile);
+            $data['image'] = $image;*/
+        }
+
+        //dd("Editando POST {$post->id}");
+        //return view('admin.posts.edit', compact('post'));
+        $post->update($data);
+        return redirect()->route('posts.index')->with('message', "Post Editado com sucesso");
+    }
+```
+
 - 18 - Validações de Upload no Laravel
 
 [Voltar ao Índice](#indice)
