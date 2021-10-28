@@ -179,6 +179,42 @@ public function update(StoreUpdatePost $request, $id)
 
 - 18 - Validações de Upload no Laravel
 
+- [app-1-laravel8/app/Http/Requests/StoreUpdatePost.php](app-1-laravel8/app/Http/Requests/StoreUpdatePost.php)
+
+```php
+public function rules()
+    {
+        $id = $this->segment(3);
+
+        $rules = [
+            'title' => [
+                'required',
+                'min:3',
+                'max:160',
+                //"unique:posts, title, {$id}, id",
+                Rule::unique('posts')->ignore($id),
+
+            ],
+            'content' => [
+                'nullable',
+                'min:5',
+                'max: 10000'
+            ],
+            'image' => [
+                'required',
+                'image'
+            ]
+        ];
+
+        if ($this->method() == 'PUT') {
+            $rules['image'] = ['nullable', 'image'];
+        }
+
+        return $rules;
+    }
+```
+
+
 [Voltar ao Índice](#indice)
 
 ---
