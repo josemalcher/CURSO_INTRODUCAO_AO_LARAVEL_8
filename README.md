@@ -222,6 +222,35 @@ public function rules()
 
 ## <a name="parte4">4 - Autenticação</a>
 
+19 - Autenticação no Laravel 8 (Starter Kits)
+
+```
+$ composer require laravel/breeze --dev
+
+$ php artisan breeze:install
+Breeze scaffolding installed successfully.
+Please execute the "npm install && npm run dev" command to build your assets.
+
+```
+
+
+```
+npm install && npm run dev
+```
+
+```php
+Route::middleware(['auth'])->group(function () {
+    Route::get(   '/posts/create',  [PostController::class, 'create'])->name('posts.create');
+    Route::get(   '/posts',         [PostController::class, 'index'])->name('posts.index');
+    Route::post(  '/posts',         [PostController::class, 'store'])->name('posts.store');
+    Route::get(   '/post/{id}',     [PostController::class, 'show'])->name('post.show');
+    Route::delete('/post/{id}',     [PostController::class, 'destroy'])->name('post.destroy');
+    Route::get(   '/post/edit/{id}',[PostController::class, 'edit'])->name('post.edit');
+    Route::put(   '/post/{id}'  ,   [PostController::class, 'update'])->name('post.update');
+    Route::any(   '/posts/search'  ,[PostController::class, 'search'])->name('post.search');
+
+});
+```
 
 
 [Voltar ao Índice](#indice)
@@ -231,7 +260,7 @@ public function rules()
 
 ## <a name="parte5">5 - Final</a>
 
-
+20 - Final do Curso de Laravel 8.x
 
 [Voltar ao Índice](#indice)
 

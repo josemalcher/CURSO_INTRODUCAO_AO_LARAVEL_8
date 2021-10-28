@@ -16,15 +16,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get(   '/posts/create',  [PostController::class, 'create'])->name('posts.create');
-Route::get(   '/posts',         [PostController::class, 'index'])->name('posts.index');
-Route::post(  '/posts',         [PostController::class, 'store'])->name('posts.store');
-Route::get(   '/post/{id}',     [PostController::class, 'show'])->name('post.show');
-Route::delete('/post/{id}',     [PostController::class, 'destroy'])->name('post.destroy');
-Route::get(   '/post/edit/{id}',[PostController::class, 'edit'])->name('post.edit');
-Route::put(   '/post/{id}'  ,   [PostController::class, 'update'])->name('post.update');
-Route::any(   '/posts/search'  ,[PostController::class, 'search'])->name('post.search');
+Route::middleware(['auth'])->group(function () {
+    Route::get(   '/posts/create',  [PostController::class, 'create'])->name('posts.create');
+    Route::get(   '/posts',         [PostController::class, 'index'])->name('posts.index');
+    Route::post(  '/posts',         [PostController::class, 'store'])->name('posts.store');
+    Route::get(   '/post/{id}',     [PostController::class, 'show'])->name('post.show');
+    Route::delete('/post/{id}',     [PostController::class, 'destroy'])->name('post.destroy');
+    Route::get(   '/post/edit/{id}',[PostController::class, 'edit'])->name('post.edit');
+    Route::put(   '/post/{id}'  ,   [PostController::class, 'update'])->name('post.update');
+    Route::any(   '/posts/search'  ,[PostController::class, 'search'])->name('post.search');
+
+});
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
